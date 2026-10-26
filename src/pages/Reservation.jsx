@@ -24,8 +24,8 @@ function Faq() {
       {faqs.map(([q, a], i) => (
         <Reveal key={q} delay={i * 0.05}>
           <div className={`overflow-hidden rounded-2xl transition ${open === i ? 'bg-coffee-600 text-cream-50 shadow-xl' : 'bg-cream-50 shadow-sm'}`}>
-            <button onClick={() => setOpen(open === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 p-6 text-left">
-              <span className="font-serif text-lg font-semibold">{q}</span>
+            <button onClick={() => setOpen(open === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6">
+              <span className="font-serif text-base font-semibold sm:text-lg">{q}</span>
               <motion.span animate={{ rotate: open === i ? 45 : 0 }} className={`grid h-9 w-9 shrink-0 place-items-center rounded-full ${open === i ? 'bg-gold-400 text-coffee-900' : 'bg-cream-100'}`}>
                 <Plus size={18} />
               </motion.span>
@@ -33,7 +33,7 @@ function Faq() {
             <AnimatePresence initial={false}>
               {open === i && (
                 <motion.p initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
-                  <span className="block px-6 pb-6 text-cream-200">{a}</span>
+                  <span className="block px-5 pb-5 text-sm text-cream-200 sm:px-6 sm:pb-6 sm:text-base">{a}</span>
                 </motion.p>
               )}
             </AnimatePresence>
@@ -59,11 +59,11 @@ export default function Reservation() {
     <>
       <PageHero title="Reservation" eyebrow="Book Your Table" image={images.interior3} />
 
-      <section className="py-28">
+      <section className="py-20 md:py-28">
         <div className="container-x">
           <SectionTitle eyebrow="Reserve Online" title="Your Table Awaits" text="Book in under a minute. We’ll confirm your reservation by phone or email." />
 
-          <Reveal className="mx-auto max-w-4xl overflow-hidden rounded-[2rem] bg-cream-50 shadow-2xl shadow-coffee-900/10">
+          <Reveal className="mx-auto max-w-4xl overflow-hidden rounded-3xl sm:rounded-[2rem] bg-cream-50 shadow-2xl shadow-coffee-900/10">
             {/* progress */}
             <div className="grain relative bg-coffee-900 px-6 py-8 sm:px-10">
               <div className="relative flex items-center justify-between">
@@ -85,7 +85,7 @@ export default function Reservation() {
               </div>
             </div>
 
-            <div className="relative min-h-[420px] overflow-hidden p-6 sm:p-10">
+            <div className="relative min-h-[420px] overflow-hidden p-5 sm:p-10">
               <AnimatePresence mode="wait" custom={dir}>
                 <motion.div
                   key={step}
@@ -109,13 +109,13 @@ export default function Reservation() {
                       </div>
                       <div>
                         <label className="mb-3 block font-serif text-lg font-semibold">Preferred time</label>
-                        <div className="grid grid-cols-3 gap-3">
+                        <div className="grid grid-cols-3 gap-2 sm:gap-3">
                           {times.map((t) => (
                             <button
                               type="button"
                               key={t}
                               onClick={() => set('time', t)}
-                              className={`rounded-xl py-3 text-sm font-medium transition ${form.time === t ? 'bg-coffee-600 text-cream-50 shadow-lg' : 'bg-cream-100 hover:bg-cream-200'}`}
+                              className={`rounded-xl py-3 text-xs font-medium transition sm:text-sm ${form.time === t ? 'bg-coffee-600 text-cream-50 shadow-lg' : 'bg-cream-100 hover:bg-cream-200'}`}
                             >
                               {t}
                             </button>
@@ -172,13 +172,13 @@ export default function Reservation() {
                       >
                         <CalendarCheck size={44} />
                       </motion.div>
-                      <h3 className="mt-6 font-serif text-3xl font-semibold">Thank you, {form.name.split(' ')[0]}!</h3>
+                      <h3 className="mt-6 font-serif text-2xl font-semibold sm:text-3xl">Thank you, {form.name.split(' ')[0]}!</h3>
                       <p className="mt-2 text-coffee-400">Your reservation request has been received. We’ll confirm shortly.</p>
                       <div className="mx-auto mt-8 grid max-w-lg grid-cols-2 gap-4 text-left sm:grid-cols-4">
                         {[['Date', form.date], ['Time', form.time], ['Guests', form.guests], ['Seating', form.seat]].map(([k, v]) => (
                           <div key={k} className="rounded-xl bg-cream-100 p-4">
                             <p className="text-[10px] uppercase tracking-widest text-coffee-400">{k}</p>
-                            <p className="mt-1 font-serif font-semibold">{v}</p>
+                            <p className="mt-1 break-words font-serif text-sm font-semibold sm:text-base">{v}</p>
                           </div>
                         ))}
                       </div>
@@ -193,7 +193,7 @@ export default function Reservation() {
             </div>
 
             {step < 3 && (
-              <div className="flex items-center justify-between border-t border-coffee-300/20 px-6 py-6 sm:px-10">
+              <div className="flex items-center justify-between gap-4 border-t border-coffee-300/20 px-5 py-5 sm:px-10 sm:py-6">
                 <button
                   onClick={() => go(-1)}
                   disabled={step === 0}
@@ -210,7 +210,7 @@ export default function Reservation() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-28">
+      <section className="bg-cream-100 py-20 md:py-28">
         <div className="container-x">
           <SectionTitle eyebrow="Good to Know" title="Frequently Asked Questions" />
           <Faq />

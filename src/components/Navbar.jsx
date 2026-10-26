@@ -34,12 +34,12 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        solid ? 'bg-cream-50/90 py-3 shadow-lg shadow-coffee-900/5 backdrop-blur-md' : 'bg-transparent py-6'
+        solid ? 'bg-cream-50/90 py-3 shadow-lg shadow-coffee-900/5 backdrop-blur-md' : 'bg-transparent py-4 sm:py-6'
       }`}
     >
       <nav className="container-x flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <LogoMark className="h-12 w-12 shadow-md" />
+          <LogoMark className="h-10 w-10 shadow-md sm:h-12 sm:w-12" />
           <Wordmark light={!solid} />
         </Link>
 
@@ -89,7 +89,7 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="container-x overflow-hidden xl:hidden"
+            className="container-x max-h-[calc(100svh-4.5rem)] overflow-y-auto xl:hidden"
           >
             {links.map((l, i) => (
               <motion.li

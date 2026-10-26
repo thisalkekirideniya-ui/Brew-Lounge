@@ -19,7 +19,7 @@ export default function Reveal({ children, delay = 0, dir = 'up', className = ''
 
 export function SectionTitle({ eyebrow, title, text, center = true, light = false }) {
   return (
-    <Reveal className={`mb-14 max-w-2xl ${center ? 'mx-auto text-center' : ''}`}>
+    <Reveal className={`mb-10 max-w-2xl md:mb-14 ${center ? 'mx-auto text-center' : ''}`}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 className={`heading mt-2 ${light ? '!text-cream-50' : ''}`}>{title}</h2>
       <div className={`mt-5 flex items-center gap-3 ${center ? 'justify-center' : ''}`}>

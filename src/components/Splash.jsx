@@ -23,7 +23,7 @@ function Bean({ size }) {
 function Cup() {
   const body = 'M45 78 H155 L149 138 Q145 166 118 166 H82 Q55 166 51 138 Z'
   return (
-    <svg viewBox="0 0 220 220" className="h-56 w-56 overflow-visible md:h-72 md:w-72">
+    <svg viewBox="0 0 220 220" className="h-44 w-44 overflow-visible sm:h-56 sm:w-56 md:h-72 md:w-72">
       <defs>
         <clipPath id="cupClip"><path d={body} /></clipPath>
         <linearGradient id="coffee" x1="0" y1="0" x2="0" y2="1">
@@ -123,7 +123,7 @@ export default function Splash() {
       <div className="grain relative flex h-full flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_center,#462818_0%,#1C100A_70%)]">
         {/* glow */}
         <motion.div
-          className="absolute h-[34rem] w-[34rem] rounded-full bg-gold-500/20 blur-[120px]"
+          className="absolute h-80 w-80 rounded-full bg-gold-500/20 sm:h-[34rem] sm:w-[34rem] blur-[120px]"
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.9, 0.5] }}
           transition={{ duration: 4, repeat: Infinity }}
         />
@@ -150,7 +150,7 @@ export default function Splash() {
         {/* orbit rings */}
         <div className="relative grid place-items-center">
           <motion.div
-            className="absolute h-80 w-80 rounded-full border border-gold-400/25 md:h-[26rem] md:w-[26rem]"
+            className="absolute h-64 w-64 rounded-full border border-gold-400/25 sm:h-80 sm:w-80 md:h-[26rem] md:w-[26rem]"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1, rotate: 360 }}
             transition={{ scale: { duration: 1.2, ease }, opacity: { duration: 1.2 }, rotate: { duration: 14, repeat: Infinity, ease: 'linear' } }}
@@ -158,7 +158,7 @@ export default function Splash() {
             <span className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-gold-400 shadow-[0_0_20px_#D4AF6A]" />
           </motion.div>
           <motion.div
-            className="absolute h-[22rem] w-[22rem] rounded-full border border-dashed border-sage-400/30 md:h-[30rem] md:w-[30rem]"
+            className="absolute h-72 w-72 rounded-full border border-dashed border-sage-400/30 sm:h-[22rem] sm:w-[22rem] md:h-[30rem] md:w-[30rem]"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1, rotate: -360 }}
             transition={{ scale: { duration: 1.4, ease }, opacity: { duration: 1.4 }, rotate: { duration: 22, repeat: Infinity, ease: 'linear' } }}
@@ -169,7 +169,7 @@ export default function Splash() {
         </div>
 
         {/* brand name, letter by letter */}
-        <h1 className="relative mt-6 flex font-script text-6xl text-cream-50 md:text-7xl" aria-label="Brew lounge">
+        <h1 className="relative mt-6 flex font-script text-5xl text-cream-50 sm:text-6xl md:text-7xl" aria-label="Brew lounge">
           {word.map((ch, i) => (
             <motion.span
               key={i}
@@ -192,7 +192,7 @@ export default function Splash() {
           <motion.span className="h-px bg-sage-400" initial={{ width: 0 }} animate={{ width: 60 }} transition={{ delay: 2.1, duration: 0.8 }} />
         </motion.div>
         <motion.p
-          className="relative mt-5 text-[11px] uppercase tracking-[0.6em] text-gold-400"
+          className="relative mt-5 px-4 text-center text-[10px] uppercase tracking-[0.6em] sm:text-[11px] text-gold-400"
           initial={{ opacity: 0, letterSpacing: '1.2em' }}
           animate={{ opacity: 1, letterSpacing: '0.6em' }}
           transition={{ delay: 2.3, duration: 1 }}
@@ -201,9 +201,9 @@ export default function Splash() {
         </motion.p>
 
         {/* progress */}
-        <div className="absolute bottom-10 left-5 right-5 flex items-end justify-between sm:left-10 sm:right-10">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-cream-300/60">Brewing your experience</p>
-          <p className="font-serif text-5xl font-semibold tabular-nums text-cream-50 md:text-6xl">
+        <div className="absolute bottom-10 left-5 right-5 flex items-end justify-end sm:left-10 sm:justify-between sm:right-10">
+          <p className="hidden text-[10px] uppercase tracking-[0.4em] text-cream-300/60 sm:block">Brewing your experience</p>
+          <p className="font-serif text-4xl font-semibold tabular-nums text-cream-50 sm:text-5xl md:text-6xl">
             {pct}<span className="text-2xl text-gold-400">%</span>
           </p>
         </div>

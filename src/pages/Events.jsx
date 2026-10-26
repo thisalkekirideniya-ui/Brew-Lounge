@@ -40,20 +40,20 @@ export default function Events() {
       <PageHero title="Events" eyebrow="Gather & Celebrate" image={u('1514525253161-7a46d19cd819', 2000)} />
 
       {/* Upcoming */}
-      <section className="py-28">
+      <section className="py-20 md:py-28">
         <div className="container-x">
           <SectionTitle eyebrow="What’s On" title="Upcoming at the Lounge" text="Music, masterclasses and tastings. There’s always something brewing at Brew Lounge." />
           <div className="space-y-16">
             {events.map((e, i) => (
               <div key={e.title} className={`grid items-center gap-10 lg:grid-cols-2 ${i % 2 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
                 <Reveal dir={i % 2 ? 'left' : 'right'} className="group relative overflow-hidden rounded-[2rem] shadow-2xl">
-                  <img src={e.img} alt={e.title} className="h-[380px] w-full object-cover transition duration-1000 group-hover:scale-110" />
+                  <img src={e.img} alt={e.title} className="h-[260px] w-full object-cover transition duration-1000 sm:h-[380px] group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-coffee-900/60 to-transparent" />
                   <span className="absolute left-6 top-6 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-coffee-900">{e.tag}</span>
                 </Reveal>
                 <Reveal dir={i % 2 ? 'right' : 'left'} delay={0.15}>
                   <p className="font-script text-2xl text-sage-500">Event 0{i + 1}</p>
-                  <h3 className="mt-2 font-serif text-4xl font-semibold">{e.title}</h3>
+                  <h3 className="mt-2 font-serif text-3xl font-semibold sm:text-4xl">{e.title}</h3>
                   <div className="mt-5 flex flex-wrap gap-5 text-sm text-coffee-500">
                     <span className="flex items-center gap-2"><CalendarDays size={18} className="text-gold-500" />{e.date}</span>
                     <span className="flex items-center gap-2"><Clock size={18} className="text-gold-500" />{e.time}</span>
@@ -80,19 +80,19 @@ export default function Events() {
       </section>
 
       {/* Spaces */}
-      <section className="grain relative overflow-hidden bg-coffee-900 py-28">
+      <section className="grain relative overflow-hidden bg-coffee-900 py-20 md:py-28">
         <div className="container-x relative">
           <SectionTitle light eyebrow="Private Hire" title="Spaces for Every Occasion" text="Let our events team create a memorable experience, from intimate gatherings to grand celebrations." />
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {spaces.map((s, i) => (
               <Reveal key={s.name} delay={i * 0.15}>
-                <motion.div whileHover={{ y: -10 }} className="group relative h-[460px] overflow-hidden rounded-3xl">
+                <motion.div whileHover={{ y: -10 }} className="group relative h-[380px] overflow-hidden rounded-3xl sm:h-[460px]">
                   <img src={s.img} alt={s.name} className="h-full w-full object-cover transition duration-1000 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-coffee-900 via-coffee-900/40 to-transparent" />
                   <div className="absolute bottom-0 p-8">
                     <p className="flex items-center gap-2 text-xs uppercase tracking-widest text-gold-400"><Users size={14} />{s.guests}</p>
                     <h3 className="mt-2 font-serif text-2xl text-cream-50">{s.name}</h3>
-                    <p className="mt-3 max-h-0 overflow-hidden text-sm text-cream-200 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">{s.desc}</p>
+                    <p className="mt-3 overflow-hidden text-sm text-cream-200 transition-all duration-500 md:max-h-0 md:opacity-0 md:group-hover:max-h-32 md:group-hover:opacity-100">{s.desc}</p>
                   </div>
                 </motion.div>
               </Reveal>
@@ -102,13 +102,13 @@ export default function Events() {
       </section>
 
       {/* Packages */}
-      <section className="py-28">
+      <section className="py-20 md:py-28">
         <div className="container-x">
           <SectionTitle eyebrow="Event Packages" title="Curated for You" />
-          <div className="grid items-center gap-8 lg:grid-cols-3">
+          <div className="grid items-center gap-10 lg:grid-cols-3 lg:gap-8">
             {packages.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.15}>
-                <div className={`relative rounded-3xl p-10 transition duration-500 hover:-translate-y-2 ${p.featured ? 'bg-coffee-600 py-14 text-cream-50 shadow-2xl' : 'bg-cream-100 shadow-md hover:shadow-xl'}`}>
+                <div className={`relative rounded-3xl p-7 transition duration-500 sm:p-10 hover:-translate-y-2 ${p.featured ? 'bg-coffee-600 py-14 text-cream-50 shadow-2xl' : 'bg-cream-100 shadow-md hover:shadow-xl'}`}>
                   {p.featured && (
                     <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gold-400 px-5 py-1.5 text-xs font-semibold uppercase tracking-widest text-coffee-900">Most Popular</span>
                   )}
@@ -133,14 +133,14 @@ export default function Events() {
         </div>
       </section>
 
-      <section className="pb-28">
+      <section className="pb-20 md:pb-28">
         <Reveal className="container-x">
-          <div className="relative overflow-hidden rounded-[2.5rem]">
+          <div className="relative overflow-hidden rounded-3xl sm:rounded-[2.5rem]">
             <img src={images.interior2} alt="" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-coffee-900/75" />
-            <div className="relative px-8 py-20 text-center">
+            <div className="relative px-6 py-16 text-center sm:px-8 sm:py-20">
               <p className="font-script text-3xl text-sage-300">Planning Something Special?</p>
-              <h2 className="mx-auto mt-3 max-w-2xl font-serif text-4xl font-semibold text-cream-50 md:text-5xl">Let’s Create an Unforgettable Event Together</h2>
+              <h2 className="mx-auto mt-3 max-w-2xl font-serif text-3xl font-semibold text-cream-50 sm:text-4xl md:text-5xl">Let’s Create an Unforgettable Event Together</h2>
               <Link to="/contact" className="btn-primary mt-10 !bg-gold-500 !text-coffee-900 hover:!bg-gold-400">Talk to Our Events Team <ArrowRight size={16} /></Link>
             </div>
           </div>

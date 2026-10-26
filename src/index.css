@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html, body { overflow-x: clip; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
   body { @apply bg-cream-50 text-coffee-800 font-sans antialiased; }
   ::selection { @apply bg-coffee-500 text-cream-50; }
   ::-webkit-scrollbar { width: 10px; }
@@ -13,13 +14,13 @@
 
 @layer components {
   .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
-  .eyebrow { @apply font-script text-2xl text-sage-500; }
-  .heading { @apply font-serif text-4xl font-semibold leading-tight text-coffee-800 md:text-5xl; }
+  .eyebrow { @apply font-script text-xl text-sage-500 sm:text-2xl; }
+  .heading { @apply font-serif text-3xl font-semibold leading-tight text-coffee-800 sm:text-4xl md:text-5xl; }
   .btn-primary {
-    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-coffee-600 px-7 py-3.5 text-sm font-medium uppercase tracking-widest text-cream-50 shadow-lg shadow-coffee-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-coffee-700 hover:shadow-xl;
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-coffee-600 px-6 py-3 text-xs font-medium uppercase tracking-widest sm:px-7 sm:py-3.5 sm:text-sm text-cream-50 shadow-lg shadow-coffee-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-coffee-700 hover:shadow-xl;
   }
   .btn-outline {
-    @apply inline-flex items-center gap-2 rounded-full border border-current px-7 py-3.5 text-sm font-medium uppercase tracking-widest transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream-50 hover:text-coffee-800;
+    @apply inline-flex items-center gap-2 rounded-full border border-current px-6 py-3 text-xs font-medium uppercase tracking-widest sm:px-7 sm:py-3.5 sm:text-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream-50 hover:text-coffee-800;
   }
   .grain::after {
     content: ''; @apply pointer-events-none absolute inset-0 opacity-[0.06];

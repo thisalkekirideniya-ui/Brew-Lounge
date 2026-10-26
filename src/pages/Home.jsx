@@ -26,7 +26,7 @@ function Hero() {
   const slide = heroSlides[i]
 
   return (
-    <section className="relative flex h-screen min-h-[640px] items-center overflow-hidden bg-coffee-900">
+    <section className="relative flex h-[100svh] min-h-[600px] items-center overflow-hidden bg-coffee-900">
       <AnimatePresence>
         <motion.div
           key={i}
@@ -46,14 +46,14 @@ function Hero() {
         <AnimatePresence mode="wait">
           <motion.div key={i} className="max-w-3xl" exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.5 }}>
             <motion.p
-              className="font-script text-3xl text-sage-300 md:text-4xl"
+              className="font-script text-2xl text-sage-300 sm:text-3xl md:text-4xl"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
               {slide.eyebrow}
             </motion.p>
-            <h1 className="mt-4 font-serif text-5xl font-semibold leading-[1.05] text-cream-50 sm:text-6xl md:text-8xl">
+            <h1 className="mt-4 font-serif text-[2.6rem] font-semibold leading-[1.08] text-cream-50 sm:text-6xl md:text-8xl">
               {slide.title.map((line, li) => (
                 <span key={li} className="block overflow-hidden">
                   <motion.span
@@ -68,7 +68,7 @@ function Hero() {
               ))}
             </h1>
             <motion.p
-              className="mt-6 max-w-xl text-lg leading-relaxed text-cream-200"
+              className="mt-6 max-w-xl text-base leading-relaxed text-cream-200 sm:text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -76,7 +76,7 @@ function Hero() {
               Specialty coffee, artisan pastries and an elegant space to unwind, in the heart of Colombo.
             </motion.p>
             <motion.div
-              className="mt-10 flex flex-wrap gap-4"
+              className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -90,7 +90,7 @@ function Hero() {
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-10 right-5 z-10 flex gap-3 sm:right-8">
+      <div className="absolute bottom-8 left-5 z-10 flex gap-3 sm:bottom-10 sm:left-auto sm:right-8">
         {heroSlides.map((_, d) => (
           <button
             key={d}
@@ -120,7 +120,7 @@ function Marquee() {
     <div className="overflow-hidden bg-coffee-600 py-5">
       <div className="flex w-max animate-marquee">
         {[...words, ...words, ...words, ...words].map((w, i) => (
-          <span key={i} className="flex items-center gap-8 px-8 font-serif text-2xl italic text-cream-50">
+          <span key={i} className="flex items-center gap-6 px-6 font-serif text-xl italic sm:gap-8 sm:px-8 sm:text-2xl text-cream-50">
             {w} <Sparkles size={18} className="text-gold-400" />
           </span>
         ))}
@@ -132,21 +132,21 @@ function Marquee() {
 /* ---------------- Welcome ---------------- */
 function Welcome() {
   return (
-    <section className="relative overflow-hidden py-28">
-      <div className="pointer-events-none absolute -right-20 top-10 select-none font-script text-[14rem] leading-none text-cream-200/60">
+    <section className="relative overflow-hidden py-20 md:py-28">
+      <div className="pointer-events-none absolute -right-20 top-10 hidden select-none md:block font-script text-[14rem] leading-none text-cream-200/60">
         Brew
       </div>
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
-        <Reveal dir="right" className="relative h-[520px]">
-          <div className="absolute left-0 top-0 h-[420px] w-[72%] overflow-hidden rounded-[2rem] shadow-2xl">
+        <Reveal dir="right" className="relative h-[400px] sm:h-[520px]">
+          <div className="absolute left-0 top-0 h-[320px] w-[75%] sm:h-[420px] sm:w-[72%] overflow-hidden rounded-[2rem] shadow-2xl">
             <img src={images.interior} alt="Brew Lounge interior" className="h-full w-full object-cover transition duration-700 hover:scale-110" />
           </div>
-          <div className="absolute bottom-0 right-0 h-[300px] w-[55%] overflow-hidden rounded-[2rem] border-8 border-cream-50 shadow-2xl">
+          <div className="absolute bottom-0 right-0 h-[220px] w-[58%] overflow-hidden rounded-[2rem] border-4 sm:h-[300px] sm:w-[55%] sm:border-8 border-cream-50 shadow-2xl">
             <img src={images.latteArt} alt="Latte art" className="h-full w-full object-cover transition duration-700 hover:scale-110" />
           </div>
-          <div className="absolute bottom-16 left-6 grid h-32 w-32 animate-float place-items-center rounded-full bg-coffee-600 text-center text-cream-50 shadow-xl">
+          <div className="absolute bottom-10 left-3 grid h-24 w-24 animate-float sm:bottom-16 sm:left-6 sm:h-32 sm:w-32 place-items-center rounded-full bg-coffee-600 text-center text-cream-50 shadow-xl">
             <div>
-              <p className="font-serif text-4xl font-bold text-gold-400">15+</p>
+              <p className="font-serif text-3xl font-bold text-gold-400 sm:text-4xl">15+</p>
               <p className="text-[10px] uppercase tracking-widest">Origins</p>
             </div>
           </div>
@@ -196,7 +196,7 @@ function Welcome() {
 /* ---------------- Signature drinks ---------------- */
 function Signatures() {
   return (
-    <section className="bg-cream-100 py-28">
+    <section className="bg-cream-100 py-20 md:py-28">
       <div className="container-x">
         <SectionTitle
           eyebrow="Signature Collection"
@@ -244,7 +244,7 @@ function WhyUs() {
     [CupSoda, 'Seasonal Specials', 'New creations inspired by Sri Lankan flavours.'],
   ]
   return (
-    <section className="grain relative overflow-hidden bg-coffee-900 py-28">
+    <section className="grain relative overflow-hidden bg-coffee-900 py-20 md:py-28">
       <img src={images.beans} alt="" className="absolute inset-0 h-full w-full object-cover opacity-15" />
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-2">
         <div>
@@ -268,8 +268,8 @@ function WhyUs() {
           </div>
         </div>
         <Reveal dir="left" className="relative mx-auto">
-          <div className="absolute -inset-6 rounded-full border border-dashed border-gold-400/40 animate-spin-slow" />
-          <div className="h-[340px] w-[340px] overflow-hidden rounded-full shadow-2xl sm:h-[460px] sm:w-[460px]">
+          <div className="absolute -inset-3 rounded-full border border-dashed sm:-inset-6 border-gold-400/40 animate-spin-slow" />
+          <div className="h-[270px] w-[270px] overflow-hidden rounded-full shadow-2xl sm:h-[400px] sm:w-[400px] lg:h-[460px] lg:w-[460px]">
             <img src={images.barista} alt="Barista at work" className="h-full w-full object-cover" />
           </div>
           <div className="absolute -bottom-4 left-0 rounded-2xl bg-cream-50 px-6 py-4 shadow-xl">
@@ -307,10 +307,10 @@ function Stats() {
       <div className="container-x grid grid-cols-2 gap-10 text-center lg:grid-cols-4">
         {stats.map(([n, s, l], i) => (
           <Reveal key={l} delay={i * 0.1}>
-            <p className="font-serif text-5xl font-bold text-cream-50">
+            <p className="font-serif text-4xl font-bold text-cream-50 sm:text-5xl">
               {Number.isInteger(n) ? <Counter to={n} suffix={s} /> : n}
             </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-coffee-900/80">{l}</p>
+            <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-coffee-900/80 sm:text-xs sm:tracking-[0.3em]">{l}</p>
           </Reveal>
         ))}
       </div>
@@ -323,7 +323,7 @@ function MenuPreview() {
   const tabs = Object.keys(menu)
   const [tab, setTab] = useState(tabs[0])
   return (
-    <section className="py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
         <SectionTitle eyebrow="Our Menu" title="Taste the Difference" text="A glimpse of what awaits. Explore the full menu for our complete selection." />
         <Reveal className="mb-12 flex flex-wrap justify-center gap-3">
@@ -331,7 +331,7 @@ function MenuPreview() {
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`relative rounded-full px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition ${
+              className={`relative rounded-full px-4 py-2 text-xs font-medium uppercase tracking-wider sm:px-6 sm:py-2.5 sm:text-sm transition ${
                 tab === t ? 'text-cream-50' : 'text-coffee-600 hover:text-coffee-400'
               }`}
             >
@@ -353,13 +353,13 @@ function MenuPreview() {
             className="grid gap-x-16 gap-y-8 md:grid-cols-2"
           >
             {menu[tab].slice(0, 6).map((m) => (
-              <div key={m.name} className="group flex items-center gap-5">
-                <img src={m.img} alt={m.name} className="h-20 w-20 shrink-0 rounded-full object-cover shadow-md ring-4 ring-cream-100 transition duration-500 group-hover:rotate-6 group-hover:scale-110" />
+              <div key={m.name} className="group flex items-center gap-4 sm:gap-5">
+                <img src={m.img} alt={m.name} className="h-16 w-16 shrink-0 rounded-full object-cover shadow-md ring-4 sm:h-20 sm:w-20 ring-cream-100 transition duration-500 group-hover:rotate-6 group-hover:scale-110" />
                 <div className="flex-1">
-                  <div className="flex items-baseline gap-3">
-                    <h3 className="font-serif text-lg font-semibold">{m.name}</h3>
+                  <div className="flex items-baseline gap-2 sm:gap-3">
+                    <h3 className="font-serif text-base font-semibold sm:text-lg">{m.name}</h3>
                     <span className="flex-1 border-b border-dashed border-coffee-300/60" />
-                    <span className="font-serif font-semibold text-sage-600">{lkr(m.price)}</span>
+                    <span className="whitespace-nowrap font-serif text-sm font-semibold text-sage-600 sm:text-base">{lkr(m.price)}</span>
                   </div>
                   <p className="mt-1 text-sm text-coffee-400">{m.desc}</p>
                 </div>
@@ -387,7 +387,7 @@ function Parallax() {
       <div className="absolute inset-0 bg-coffee-900/70" />
       <Reveal className="container-x relative text-center">
         <Quote size={48} className="mx-auto text-gold-400" />
-        <p className="mx-auto mt-6 max-w-4xl font-serif text-3xl italic leading-snug text-cream-50 md:text-5xl">
+        <p className="mx-auto mt-6 max-w-4xl font-serif text-2xl italic leading-snug text-cream-50 sm:text-3xl md:text-5xl">
           “Coffee is a language in itself, and at Brew Lounge, we speak it fluently.”
         </p>
         <p className="mt-6 font-script text-3xl text-sage-300">Zoe, Founder</p>
@@ -405,23 +405,23 @@ function Process() {
     [Heart, 'Serve', 'Presented with warmth, enjoyed with joy.', images.latteArt],
   ]
   return (
-    <section className="bg-cream-100 py-28">
+    <section className="bg-cream-100 py-20 md:py-28">
       <div className="container-x">
         <SectionTitle eyebrow="Bean to Cup" title="Our Craft Process" />
-        <div className="relative grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="relative grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
           <div className="absolute left-0 right-0 top-[88px] hidden h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent lg:block" />
           {steps.map(([Icon, t, d, img], i) => (
             <Reveal key={t} delay={i * 0.15} className="group relative text-center">
-              <div className="relative mx-auto h-44 w-44">
+              <div className="relative mx-auto h-32 w-32 sm:h-44 sm:w-44">
                 <img src={img} alt={t} className="h-full w-full rounded-full object-cover shadow-xl transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 rounded-full bg-coffee-900/40 transition group-hover:bg-coffee-900/10" />
-                <div className="absolute -right-1 top-2 grid h-12 w-12 place-items-center rounded-full bg-gold-400 text-coffee-900 shadow-lg">
+                <div className="absolute -right-1 top-0 grid h-10 w-10 place-items-center rounded-full bg-gold-400 sm:top-2 sm:h-12 sm:w-12 text-coffee-900 shadow-lg">
                   <Icon size={20} />
                 </div>
               </div>
               <p className="mt-6 font-script text-xl text-sage-500">Step 0{i + 1}</p>
-              <h3 className="mt-1 font-serif text-2xl font-semibold">{t}</h3>
-              <p className="mx-auto mt-2 max-w-[220px] text-sm text-coffee-400">{d}</p>
+              <h3 className="mt-1 font-serif text-xl font-semibold sm:text-2xl">{t}</h3>
+              <p className="mx-auto mt-2 max-w-[220px] text-xs text-coffee-400 sm:text-sm">{d}</p>
             </Reveal>
           ))}
         </div>
@@ -434,10 +434,10 @@ function Process() {
 function Gallery() {
   const spans = ['md:row-span-2', '', '', 'md:col-span-2', '', 'md:row-span-2', '', '']
   return (
-    <section className="py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
         <SectionTitle eyebrow="Inside the Lounge" title="Moments at Brew Lounge" />
-        <div className="grid auto-rows-[220px] grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid auto-rows-[150px] grid-cols-2 gap-3 sm:auto-rows-[220px] sm:gap-4 md:grid-cols-4">
           {gallery.map((g, i) => (
             <Reveal key={i} delay={(i % 4) * 0.08} className={`group relative overflow-hidden rounded-2xl ${spans[i]}`}>
               <img src={g} alt="" className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
@@ -465,7 +465,7 @@ function Testimonials() {
   }, [n])
   const t = testimonials[i]
   return (
-    <section className="relative overflow-hidden bg-cream-100 py-28">
+    <section className="relative overflow-hidden bg-cream-100 py-20 md:py-28">
       <div className="container-x">
         <SectionTitle eyebrow="Kind Words" title="What Our Guests Say" />
         <div className="relative mx-auto max-w-3xl text-center">
@@ -480,7 +480,7 @@ function Testimonials() {
               <div className="flex justify-center text-gold-400">
                 {[...Array(5)].map((_, k) => <Star key={k} size={20} fill="currentColor" />)}
               </div>
-              <p className="mt-8 font-serif text-2xl italic leading-relaxed text-coffee-700 md:text-3xl">“{t.text}”</p>
+              <p className="mt-8 font-serif text-xl italic leading-relaxed text-coffee-700 sm:text-2xl md:text-3xl">“{t.text}”</p>
               <div className="mx-auto mt-8 grid h-16 w-16 place-items-center rounded-full bg-coffee-600 font-serif text-2xl text-cream-50">
                 {t.name[0]}
               </div>
@@ -488,7 +488,7 @@ function Testimonials() {
               <p className="text-sm text-sage-600">{t.role}</p>
             </motion.div>
           </AnimatePresence>
-          <div className="mt-10 flex items-center justify-center gap-4">
+          <div className="mt-10 flex items-center justify-center gap-3 sm:gap-4">
             <button onClick={() => setI((i - 1 + n) % n)} className="grid h-12 w-12 place-items-center rounded-full border border-coffee-300 transition hover:bg-coffee-600 hover:text-cream-50" aria-label="Previous">
               <ChevronLeft />
             </button>
@@ -508,15 +508,15 @@ function Testimonials() {
 /* ---------------- CTA ---------------- */
 function Cta() {
   return (
-    <section className="py-28">
+    <section className="py-20 md:py-28">
       <div className="container-x">
-        <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-coffee-700">
+        <Reveal className="relative overflow-hidden rounded-3xl bg-coffee-700 sm:rounded-[2.5rem]">
           <img src={images.interior3} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-r from-coffee-900 via-coffee-900/80 to-transparent" />
-          <div className="relative grid gap-10 p-10 md:p-16 lg:grid-cols-2">
+          <div className="relative grid gap-10 p-6 sm:p-10 md:p-16 lg:grid-cols-2">
             <div>
               <p className="font-script text-3xl text-sage-300">Reserve Your Spot</p>
-              <h2 className="mt-2 font-serif text-4xl font-semibold text-cream-50 md:text-5xl">Your Table Awaits</h2>
+              <h2 className="mt-2 font-serif text-3xl font-semibold text-cream-50 sm:text-4xl md:text-5xl">Your Table Awaits</h2>
               <p className="mt-5 max-w-md text-cream-200">
                 Meetings, celebrations or a quiet afternoon. Book ahead and let us prepare the perfect setting for you.
               </p>
@@ -525,7 +525,7 @@ function Cta() {
                 <Link to="/products" className="btn-outline text-cream-50">See Menu</Link>
               </div>
             </div>
-            <form onSubmit={(e) => { e.preventDefault(); e.target.reset(); alert('Thank you for subscribing!') }} className="self-end rounded-3xl bg-cream-50/10 p-8 backdrop-blur-md">
+            <form onSubmit={(e) => { e.preventDefault(); e.target.reset(); alert('Thank you for subscribing!') }} className="self-end rounded-3xl bg-cream-50/10 p-6 backdrop-blur-md sm:p-8">
               <p className="font-serif text-2xl text-cream-50">Join the Lounge Club</p>
               <p className="mt-2 text-sm text-cream-200">Get exclusive offers, new menu launches and event invites.</p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">

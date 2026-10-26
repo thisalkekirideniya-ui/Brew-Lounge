@@ -16,7 +16,7 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer className="grain relative overflow-hidden bg-coffee-900 text-cream-200">
-      <div className="container-x relative grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container-x relative grid gap-10 py-16 sm:grid-cols-2 md:gap-12 md:py-20 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">
             <LogoMark className="h-16 w-16" />

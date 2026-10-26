@@ -33,7 +33,7 @@ export default function Contact() {
         <div className="container-x grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map(([Icon, t, d], i) => (
             <Reveal key={t} delay={i * 0.1}>
-              <div className="group h-full rounded-3xl bg-cream-50 p-8 text-center shadow-xl transition duration-500 hover:-translate-y-2 hover:bg-coffee-600">
+              <div className="group h-full rounded-3xl bg-cream-50 p-6 text-center sm:p-8 shadow-xl transition duration-500 hover:-translate-y-2 hover:bg-coffee-600">
                 <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-sage-300/40 text-coffee-600 transition group-hover:bg-gold-400 group-hover:text-coffee-900">
                   <Icon size={26} />
                 </div>
@@ -45,7 +45,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-28">
+      <section className="py-20 md:py-28">
         <div className="container-x grid gap-16 lg:grid-cols-5">
           <div className="lg:col-span-3">
             <SectionTitle center={false} eyebrow="Reservations & Enquiries" title="We’d Love to Hear From You" text="Reserve a table, plan an event, or simply say hello. Our team will respond within a few hours." />
@@ -87,14 +87,14 @@ export default function Contact() {
           </div>
 
           <Reveal dir="left" className="lg:col-span-2">
-            <div className="grain relative h-full overflow-hidden rounded-[2rem] bg-coffee-900 p-10 text-cream-200">
+            <div className="grain relative h-full overflow-hidden rounded-[2rem] bg-coffee-900 p-6 sm:p-10 text-cream-200">
               <img src={images.interior3} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20" />
               <div className="relative">
                 <p className="font-script text-3xl text-sage-300">Opening Hours</p>
                 <h3 className="mt-2 font-serif text-3xl text-cream-50">Come Say Hello</h3>
                 <ul className="mt-8 space-y-5">
                   {contact.hours.map(([d, h]) => (
-                    <li key={d} className="flex items-center justify-between border-b border-cream-50/10 pb-4">
+                    <li key={d} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-cream-50/10 pb-4 text-sm sm:text-base">
                       <span>{d}</span>
                       <span className="font-serif text-gold-400">{h}</span>
                     </li>
@@ -109,12 +109,12 @@ export default function Contact() {
         </div>
       </section>
 
-      <Reveal className="container-x pb-28">
+      <Reveal className="container-x pb-20 md:pb-28">
         <div className="overflow-hidden rounded-[2rem] shadow-2xl">
           <iframe
             title="Brew Lounge location"
             src="https://www.google.com/maps?q=Flower+Road+Colombo+07&output=embed"
-            className="h-[450px] w-full grayscale-[40%] sepia-[20%]"
+            className="h-[320px] w-full grayscale sm:h-[450px]-[40%] sepia-[20%]"
             loading="lazy"
           />
         </div>

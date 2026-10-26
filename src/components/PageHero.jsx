@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function PageHero({ title, eyebrow, image }) {
   return (
-    <section className="relative flex h-[70vh] min-h-[460px] items-center justify-center overflow-hidden">
+    <section className="relative flex h-[60vh] min-h-[400px] sm:h-[70vh] sm:min-h-[460px] items-center justify-center overflow-hidden">
       <motion.img
         src={image}
         alt=""
@@ -15,7 +15,7 @@ export default function PageHero({ title, eyebrow, image }) {
       <div className="absolute inset-0 bg-gradient-to-b from-coffee-900/80 via-coffee-900/60 to-coffee-900/90" />
       <div className="relative px-5 text-center">
         <motion.p
-          className="font-script text-3xl text-sage-300"
+          className="font-script text-2xl text-sage-300 sm:text-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -23,7 +23,7 @@ export default function PageHero({ title, eyebrow, image }) {
           {eyebrow}
         </motion.p>
         <motion.h1
-          className="mt-3 font-serif text-5xl font-semibold text-cream-50 md:text-7xl"
+          className="mt-3 font-serif text-[2.6rem] font-semibold leading-tight text-cream-50 sm:text-6xl md:text-7xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -31,7 +31,7 @@ export default function PageHero({ title, eyebrow, image }) {
           {title}
         </motion.h1>
         <motion.div
-          className="mt-6 flex items-center justify-center gap-2 text-sm uppercase tracking-widest text-cream-200"
+          className="mt-6 flex items-center justify-center gap-2 text-xs uppercase sm:text-sm tracking-widest text-cream-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
